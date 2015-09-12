@@ -1,0 +1,386 @@
+// Generated for: spectre
+// Generated on: Mar 10 12:08:50 2014
+// Design library name: ee115c
+// Design cell name: Project11NEW
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/w/class.1/ee/ee115v/ee115vta/gpdk/gpdk090/../../models/spectre/gpdk090.scs" section=NN
+
+// Library name: gsclib090
+// Cell name: XOR2X1
+// View name: schematic
+subckt XOR2X1 A B Y inh_VDD inh_VSS
+    mp3 (n0 n2 net130 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp1 (n2 B inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp4 (n1 B n0 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp0 (n1 A inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp5 (Y n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp2 (net130 n1 inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n \
+        as=100.8f ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mn1 (n2 B inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn0 (n1 A inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn5 (Y n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn3 (n0 B net131 inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn4 (n0 n2 n1 inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn2 (net131 n1 inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n \
+        as=67.2f ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends XOR2X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A Y inh_VDD inh_VSS
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NOR2X1
+// View name: schematic
+subckt NOR2X1 A B Y inh_VDD inh_VSS
+    mp1 (Y B net41 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (net41 A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+ends NOR2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: CompS1NEW
+// View name: schematic
+subckt CompS1NEW GND M5 O1 T5 VDD
+    I9 (M5 net14 VDD GND) INVX1
+    I8 (T5 net14 O1 VDD GND) NOR2X1
+ends CompS1NEW
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NOR3X1
+// View name: schematic
+subckt NOR3X1 A B C Y inh_VDD inh_VSS
+    mp1 (n1 B n0 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp2 (Y C n1 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (n0 A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn2 (Y C inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+ends NOR3X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: AOI2BB2X1
+// View name: schematic
+subckt AOI2BB2X1 A0N A1N B0 B1 Y inh_VDD inh_VSS
+    mp5 (Y B1 n4 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp4 (Y B0 n4 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp2 (n4 n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (n0 A0N inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp1 (n1 A1N inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp3 (n4 n1 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn5 (n3 B1 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn4 (Y B0 n3 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn3 (Y n1 n2 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn2 (n2 n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (n0 A0N inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn1 (n1 A1N inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends AOI2BB2X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NOR4X1
+// View name: schematic
+subckt NOR4X1 A B C D Y inh_VDD inh_VSS
+    mp1 (n1 B n0 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp3 (Y D n2 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp2 (n2 C n1 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (n0 A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn2 (Y C inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn3 (Y D inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+ends NOR4X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Compcarry
+// View name: schematic
+subckt Compcarry A2 A3 A4 A5 B2 B3 B4 B5 C1 C2 C3 C4 GND VDD
+    I83 (net5 net6 net8 C3 VDD GND) NOR3X1
+    I73 (A2 B2 A2 B2 net10 VDD GND) AOI2BB2X1
+    I87 (A4 B4 A4 B4 net6 VDD GND) AOI2BB2X1
+    I88 (A5 B5 A5 B5 net8 VDD GND) AOI2BB2X1
+    I72 (A3 B3 A3 B3 net5 VDD GND) AOI2BB2X1
+    I79 (net6 net8 C2 VDD GND) NOR2X1
+    I84 (net10 net5 net6 net8 C4 VDD GND) NOR4X1
+    I80 (net8 C1 VDD GND) INVX1
+ends Compcarry
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: OA21X1
+// View name: schematic
+subckt OA21X1 A0 A1 B0 Y inh_VDD inh_VSS
+    mp1 (net95 A1 net98 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp0 (net98 A0 inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n \
+        as=100.8f ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp3 (Y net95 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp2 (net95 B0 inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n \
+        as=100.8f ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mn1 (net107 A1 inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n \
+        as=67.2f ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn0 (net107 A0 inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n \
+        as=67.2f ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn3 (Y net95 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn2 (net95 B0 net107 inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends OA21X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: OR3X1
+// View name: schematic
+subckt OR3X1 A B C Y inh_VDD inh_VSS
+    mp3 (Y n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp1 (n2 B n1 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp2 (n0 C n2 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp0 (n1 A inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mn3 (Y n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (n0 A inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn1 (n0 B inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn2 (n0 C inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends OR3X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: OR4X1
+// View name: schematic
+subckt OR4X1 A B C D Y inh_VDD inh_VSS
+    mp4 (Y n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (n1 A inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp3 (n0 D n3 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp1 (n2 B n1 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp2 (n3 C n2 inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mn4 (Y n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn3 (n0 D inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn0 (n0 A inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn2 (n0 C inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn1 (n0 B inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends OR4X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: AND2X1
+// View name: schematic
+subckt AND2X1 A B Y inh_VDD inh_VSS
+    mp1 (n0 B inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp0 (n0 A inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1)
+    mp2 (Y n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn2 (Y n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (net127 B inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+    mn1 (n0 A net127 inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1)
+ends AND2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: carrystage3
+// View name: schematic
+subckt carrystage3 B1 B2 B3 B4 B6 GND VDD Y1 Y2 Y3 Y4
+    I47 (B1 B2 B6 Y2 VDD GND) OA21X1
+    I51 (B3 B2 B1 net10 VDD GND) OR3X1
+    I52 (B4 B3 B2 B1 net11 VDD GND) OR4X1
+    I54 (B6 net11 Y4 VDD GND) AND2X1
+    I56 (B1 B6 Y1 VDD GND) AND2X1
+    I53 (B6 net10 Y3 VDD GND) AND2X1
+ends carrystage3
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: M51module222OLDY
+// View name: schematic
+subckt M51module222OLDY B5 GND M5 VDD Y
+    I6 (B5 Y B5 Y M5 VDD GND) AOI2BB2X1
+ends M51module222OLDY
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NAND2X1
+// View name: schematic
+subckt NAND2X1 A B Y inh_VDD inh_VSS
+    mp1 (Y B inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1)
+    mn1 (Y B n0 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+    mn0 (n0 A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1)
+ends NAND2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: CompS2NEW
+// View name: schematic
+subckt CompS2NEW A B C GND O VDD
+    I3 (B net9 O VDD GND) NOR2X1
+    I1 (A C net9 VDD GND) NAND2X1
+ends CompS2NEW
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: NOR3X2
+// View name: schematic
+subckt NOR3X2 A B C Y inh_VDD inh_VSS
+    mp1 (n1 B n0 inh_VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f ad=364f \
+        ps=1.86u pd=1.86u m=(1)*(1)
+    mp2 (Y C n1 inh_VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f ad=364f \
+        ps=1.86u pd=1.86u m=(1)*(1)
+    mp0 (n0 A inh_VDD inh_VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f \
+        ad=364f ps=1.86u pd=1.86u m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=1.42u pd=1.42u m=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=1.42u pd=1.42u m=(1)*(1)
+    mn2 (Y C inh_VSS inh_VSS) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=1.42u pd=1.42u m=(1)*(1)
+ends NOR3X2
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: NAND2X8
+// View name: schematic
+subckt NAND2X8 A B Y inh_VDD inh_VSS
+    mp1 (Y B inh_VDD inh_VDD) gpdk090_pmos1v w=(5.2u) l=100n as=1.456p \
+        ad=1.456p ps=5.76u pd=5.76u m=(1)*(1)
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(5.2u) l=100n as=1.456p \
+        ad=1.456p ps=5.76u pd=5.76u m=(1)*(1)
+    mn1 (Y B n0 inh_VSS) gpdk090_nmos1v w=(3.44u) l=100n as=963.2f \
+        ad=963.2f ps=4u pd=4u m=(1)*(1)
+    mn0 (n0 A inh_VSS inh_VSS) gpdk090_nmos1v w=(3.44u) l=100n as=963.2f \
+        ad=963.2f ps=4u pd=4u m=(1)*(1)
+ends NAND2X8
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: NOR2X2
+// View name: schematic
+subckt NOR2X2 A B Y inh_VDD inh_VSS
+    mp1 (Y B net41 inh_VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f ad=364f \
+        ps=1.86u pd=1.86u m=(1)*(1)
+    mp0 (net41 A inh_VDD inh_VDD) gpdk090_pmos1v w=(1.3u) l=100n as=364f \
+        ad=364f ps=1.86u pd=1.86u m=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=1.42u pd=1.42u m=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(860n) l=100n as=240.8f \
+        ad=240.8f ps=1.42u pd=1.42u m=(1)*(1)
+ends NOR2X2
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: finalstage
+// View name: schematic
+subckt finalstage C C1 C2 C3 C4 C5 GND VDD
+    I18 (C5 C4 C3 net13 VDD GND) NOR3X2
+    I20 (net13 net12 C VDD GND) NAND2X8
+    I19 (C2 C1 net12 VDD GND) NOR2X2
+ends finalstage
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Project11NEW
+// View name: schematic
+I107 (X4 net075 M5 VDD GND) XOR2X1
+I77 (GND M5 net048 T4 VDD) CompS1NEW
+I76 (M2 M3 M4 M5 T1 T2 T3 T4 net026 net027 net046 net044 GND VDD) \
+        Compcarry
+I90 (X0 X1 X2 X3 X5 GND VDD net036 net076 net054 net075) carrystage3
+I104 (X3 GND M4 VDD net054) M51module222OLDY
+I100 (X2 GND M3 VDD net076) M51module222OLDY
+I99 (X1 GND M2 VDD net036) M51module222OLDY
+I108 (X0 T0 net044 GND net042 VDD) CompS2NEW
+I80 (M2 T1 net046 GND net043 VDD) CompS2NEW
+I79 (M3 T2 net027 GND net040 VDD) CompS2NEW
+I78 (M4 T3 net026 GND net050 VDD) CompS2NEW
+I38 (OUT net042 net043 net040 net050 net048 GND VDD) finalstage
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

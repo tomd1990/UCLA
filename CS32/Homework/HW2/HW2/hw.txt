@@ -1,0 +1,40 @@
+Hw2  #2
+6,4 
+6,5
+7,5
+8,5
+8,6
+8,7
+8,8
+7,8
+6,6
+5,4
+4,4
+
+Hw2 #4
+6,4
+5,4
+6,5
+4,4
+6,6
+7,5
+3,4
+4,5
+8,5
+2,4
+4,6
+
+Using the stack we search in a particular direction, till that direction ends. Which can be
+seen  in the list as the stack searches in the eastern direction, relative to where we 
+started. It does this till it cant go East anymore than chooses another direction to 
+explore, till we get to our destination or when we run out of moves.
+
+The queue maintains order throughout the search.  It does not wander off like the stack does, 
+instead it searches each and every position in their respective order.  Which can be seen in 
+the code, it searches North, East, South west, then it takes the North position and inspects
+everything there, so on and so forth.  If we think of it as a tree, the queue will 
+search everything in the roots, then everything in the base, and finally everything in the 
+branches  till we find our destination.
+
+
+
